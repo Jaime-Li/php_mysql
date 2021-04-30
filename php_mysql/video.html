@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./dist/css/swiper.min.css">
+	
+	<style>
+		body{
+			background: #eee;
+		}
+		.p{
+			width: 800px;
+			height: 200px;
+			margin:30px auto;
+			background: #eee;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-items: center;
+			align-content: stretch;
+		}
+		.p div{
+			width: 180px;
+			height: 80px;
+		}
+		.swiper-container{
+			width: 450px;
+			height: 300px;
+			margin:50px auto;
+		}
+		.swiper-slide{
+			text-align: center;
+			width: 450px;
+		}
+		.swiper-slide img{
+			max-width: 450px;
+		}
+
+		
+		.swiper-pagination{
+			position: absolute;
+			bottom:10px;
+			left: 200px
+		}
+		.swiper-pagination-bullet{
+                height: 14px;
+                width: 14px;
+            }
+	</style>
+</head>
+<body>
+	<iframe src="//player.bilibili.com/player.html?aid=94901383&bvid=BV1PE411T7BQ&cid=163939772&page=585" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+	<div class="p">
+		<div style="background: gray"></div>
+		<div style="background: orange"></div>
+		<div style="background: red"></div>
+		<div style="background: gray"></div>
+		<div style="background: orange"></div>
+		<div style="background: red"></div>
+		<div style="background: gray"></div>
+		<div style="background: orange"></div>
+		
+	</div>
+
+	<div class="swiper-container">
+    	<div class="swiper-wrapper">
+	        <div class="swiper-slide"><img src="./img/01.jpg" alt=""></div>
+	        <div class="swiper-slide"><img src="./img/02.jpg" alt=""></div>
+	        <div class="swiper-slide"><img src="./img/03.jpg" alt=""></div>
+    	</div>
+	    <!-- 如果需要分页器 -->
+	    <div class="swiper-pagination"></div>
+	    
+	    <!-- 如果需要导航按钮 -->
+	    <div class="swiper-button-prev"></div>
+	    <div class="swiper-button-next"></div>
+	    
+	    <!-- 如果需要滚动条 -->
+	    <!-- <div class="swiper-scrollbar"></div> -->
+	</div>
+
+	<script src="./dist/js/swiper.min.js"></script>
+	<script>        
+	  var Swiper = new Swiper('.swiper-container', {
+	    // direction: 'vertical',
+	    loop: true,
+	    
+	    // 如果需要分页器
+	    pagination: {
+    		el: '.swiper-pagination',
+    		clickable:true,
+    		
+  		},
+	    
+	    // 如果需要前进后退按钮
+	    navigation: {
+     		nextEl: '.swiper-button-next',
+      		prevEl: '.swiper-button-prev',
+   	 	},
+	    // 如果需要滚动条
+	    scrollbar: '.swiper-scrollbar',
+	    autoplay:true,
+	  })        
+  </script>
+<style type="text/css">
+  .swiper-container{
+    --swiper-theme-color: #ccc;
+    --swiper-pagination-color: #00ff33;/* 两种都可以 */
+  }
+</style>
+
+</body>
+</html>

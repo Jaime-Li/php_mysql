@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta http-equiv="refresh" content="3;http://www.baidu.com"/> -->
+	<title>Document</title>
+	<style>
+		.success{
+			color: green;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="<?=$flag?>"><?=$info?></div>
+	<div><span id="t"><?=$time?></span>秒以后跳转</div>
+
+	<script>
+	window.onload = function(){
+		var t = <?=$time?>;
+		setInterval(function(){
+			document.getElementById('t').innerHTML = --t;
+			if(t == 0){
+				location.href = 'index.php';
+			}
+		},1000)
+		
+	}
+	</script>
+</body>
+</html>

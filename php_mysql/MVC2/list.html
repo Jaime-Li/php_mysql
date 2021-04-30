@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<a href="index.php?c=Student&a=add">添加</a>
+	<table border="1" width="600" bordercolor="#000">
+		<tr>
+			<th>序号</th>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>地址</th>
+			<th>修改</th>
+			<th>删除</th>
+		</tr>
+		<?php foreach($list as $row): ?>
+		<tr>
+			<td><?=$row['id']?></td>
+			<td><?=$row['stuname']?></td>
+			<td><?=$row['sex']?></td>
+			<td><?=$row['add']?></td>
+			<td><a href="index.php?c=Student&a=edit&id=<?=$row['id']?>">修改</a></td>
+			<td><a href="index.php?c=Student&a=del&id=<?=$row['id']?>" onclick="return confirm('确定删除吗')">删除</a></td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+</body>
+</html>

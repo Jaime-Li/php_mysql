@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<form action="" method="post">
+		<input type="text" name="aa" class="name" id="name">
+		<input type="submit" value="发射" class="but">
+	</form>
+
+	
+</body>
+<script>
+		$(function(){
+			console.log(111)
+			var namea = $("input[name='aa']").val();
+			$(".but").click(function(){
+				alert(namea);	
+				$.ajax({
+					
+				})			
+			})
+			
+
+		})
+	</script>
+</html>

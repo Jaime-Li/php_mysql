@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximun-scale=1">
+	<meta content="no-transform" http-equiv="Cache-Control">
+	<title>Document</title>
+	<style>
+		body{
+			background: #f5f5f5;
+		}
+		.main{
+			width: 100%;
+			height: 150rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.main div{
+			width: 80%;
+			height: 30rem;
+		}
+		a{
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			background: #ccc;
+			border-radius: 1rem;
+			position: fixed;
+			right: 2rem;
+			top: 40rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div style="background: red">
+			dadwc
+		</div>
+		<div style="background: blue">
+			dascacdscs
+		</div>
+		<div style="background: gray">
+			fefefefe
+		</div>
+		<div style="background: orange">
+			snvfnfd
+		</div>
+	</div>
+	<a href="" id="con"></a>
+
+
+	<script>
+
+
+//元素拖拽，边界设置
+    let oBox = document.getElementById("con");
+    let oDB = document.getElementsByTagName("body")
+    oBox.addEventListener("touchstart", function (ev) {
+        ev.stopPropagation();//取消冒泡
+        ev.preventDefault();//取消默认行为
+        let startX = ev.targetTouches[0].clientX;//触摸点位置
+        let startY = ev.targetTouches[0].clientY;//触摸点位置
+        let disX = startX - oBox.offsetLeft;//触摸点与元素位置的差
+        let disY = startY - oBox.offsetTop;//触摸点与元素位置的差
+        let thisW = oBox.offsetWidth;//元素宽度
+        let thisH = oBox.offsetHeight;//元素高度
+        let kjqW = window.innerWidth;//可见区域宽度
+        let kjqH = window.innerHeight;//可见区域高度
+        let DbH = oDB.offsetHeight;//底部高度
+
+        // let dir = "";//拖拽方向 x代表横向拖拽 y代表纵向
+        function fnMove(ev) {
+            let curX = ev.targetTouches[0].clientX;
+            let curY = ev.targetTouches[0].clientY;
+            // if (dir == '') {
+            //     if (Math.abs(curX - startX) >= 5) {
+            //         dir = 'x';
+            //     } else if (Math.abs(curY - startY) >= 5) {
+            //         dir = 'y';
+            //     }
+            // } else {
+            //     if (dir == 'x') {
+            // oBox.style.left = ev.targetTouches[0].clientX - disX + 'px';
+            // } else if (dir == 'y') {
+            // oBox.style.top = ev.targetTouches[0].clientY - disY + 'px';
+            // }
+            // }
+
+            if ((oBox.offsetLeft > 0 || curX > startX)) {
+                if ((oBox.offsetLeft + thisW < kjqW) || startX > curX) {
+                    oBox.style.left = ev.targetTouches[0].clientX - disX + 'px';
+                }
+            }
+            if (oBox.offsetTop > 0 || curY > startY) {
+                if ((oBox.offsetTop + thisH + DbH < kjqH) || startY > curY) {
+                    oBox.style.top = ev.targetTouches[0].clientY - disY + 'px';
+                }
+            }
+
+        }
+
+        function fnEnd(ev) {
+
+            let curX = ev.changedTouches[0].clientX;
+            let curY = ev.changedTouches[0].clientY;
+            if (curX == startX && curY == startY) {
+                location.href = "http://www.baidu.com";
+            }
+
+            oBox.removeEventListener('touchmove', fnMove, false);
+            oBox.removeEventListener('touchend', fnEnd, false);
+        }
+
+        oBox.addEventListener('touchmove', fnMove, false);
+        oBox.addEventListener('touchend', fnEnd, false);
+    }, false);
+
+	</script>
+</body>
+</html>
